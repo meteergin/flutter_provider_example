@@ -13,7 +13,7 @@ class _ClickCounterWidgetState extends State<ClickCounterWidget> {
   @override
   Widget build(BuildContext context) {
     return Consumer<CounterProvider>(
-      builder: (context, counterProvider, child) => Text('${counterProvider.counter}'),
+      builder: (context, counterProvider, child) => Text('${counterProvider.counter}', style: TextStyle(fontSize: 50.0),),
     );
   }
 }

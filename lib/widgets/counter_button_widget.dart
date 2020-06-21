@@ -10,13 +10,27 @@ class CounterButtonWidget extends StatefulWidget {
 class _CounterButtonWidgetState extends State<CounterButtonWidget> {
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: _buttonPressed,
-      icon: Icon(Icons.add),
+    return Column(
+      children: <Widget>[
+        IconButton(
+          onPressed: _addButtonPressed,
+          icon: Icon(Icons.add),
+          padding: EdgeInsets.all(30.0),
+        ),
+        IconButton(
+          onPressed: _removeButtonPressed,
+          icon: Icon(Icons.remove),
+          padding: EdgeInsets.all(30.0),
+        ),
+      ],
     );
   }
 
-  void _buttonPressed() {
-    Provider.of<CounterProvider>(context, listen: false).add();
+  void _addButtonPressed() {
+    Provider.of<CounterProvider>(context, listen: false).increment();
+  }
+
+  void _removeButtonPressed() {
+    Provider.of<CounterProvider>(context, listen: false).decrement();
   }
 }
